@@ -1,9 +1,15 @@
+
+import { useEffect, useState } from "react";
 import LayoutHome from "./components/LayoutHome";
+import Admin from "./pages/admin/Admin";
 
 function App() {
-  return (
-    <LayoutHome/>    
-  );
+  const [isAuth, setAuth] = useState(localStorage.getItem("login"));
+
+  if(isAuth == "true" )
+     return <Admin />
+  else 
+    return <LayoutHome/>;
 }
 
 
